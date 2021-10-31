@@ -1,0 +1,60 @@
+info:
+  name: ef
+  version: v0.0.1
+  gitrepo: github.com/mneumi/ef
+  template: |
+    {{.Name}} {{.Version}}
+
+    命令列表
+      create   交互式创建新项目
+      doctor   检查环境和依赖
+      version  查看命令行工具版本
+      upgrade  升级命令行工具
+      gen      生成命令
+      
+      命令后可以跟 help 获取更多帮助，如 {{.Name}} gen help
+version:
+  name: version
+  usage: 查看命令行工具版本
+upgrade:
+  name: upgrade
+  usage: 升级命令行工具版本
+deploy:
+  name: deploy
+  usage: 部署分支到云开发环境
+init:
+  name: init
+  usage: 初始化 ef 项目
+gen:
+  name: gen
+  usage: 生成命令，不带参数则全部生成
+  modules:
+    pb:
+      name: pb
+      usage: 根据 proto 生成 pb.go 文件
+    model:
+      name: model
+      usage: 根据 ddl 生成 model 文件
+create:
+  name: create
+  usage: 创建新项目
+  group: [2g, 2c]
+  type:
+    -
+      name: grpc
+      desc: gRPC应用
+    -
+      name: cron
+      desc: 定时应用
+    -
+      name: cron-job
+      desc: 任务调度
+    -
+      name: task
+      desc: 消费队列
+    -
+      name: http
+      desc: http应用，含websocket
+    -
+      name: tcp
+      desc: tcp应用
